@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     },
     subHeading : {
         fontSize: theme.fontSizes.subheading
-    }
+    },
 })
 
 
@@ -30,7 +30,8 @@ export default function StyledText ({children, color, fontSize, fontWeight, styl
         color == "primary" && styles.colorPrimary,
         color == "secondary" && styles.colorSecondary,
         fontSize == "subheading" && styles.subHeading,
-        fontWeight == "bold" && styles.bold
+        fontWeight == "bold" && styles.bold,
+        style
     ]
     return(
         <Text style={textStyles} {...restProps}>

@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native"
 import Constants from 'expo-constants'
+import theme from "../theme"
 
 export const styles = StyleSheet.create({
     container : {
@@ -16,7 +17,26 @@ export const styles = StyleSheet.create({
         marginBottom: 5
     },
     tinyLogo: {
-        width: 80,
-        height: 80,
+        width: 200,
+        height: 200,
     },
+    create:{
+        padding:4,
+        color:theme.colors.white,
+        backgroundColor:theme.colors.primary,
+        marginBottom:5,
+        marginTop:5,
+        alignSelf:'flex-start',
+        borderRadius:4,
+        overflow:"hidden", // para que aparezca el borderRadius
+    },
+    headerStyle:{
+        flexDirection:'row',
+        paddingBottom:20,
+        alignItems:'flex-end'
+    },
+    headerNameStyle:{
+        paddingLeft: 10,
+        flex: 1, // ocupa todo el contenedor y hace salto de linea si es necesario
+    }
 })

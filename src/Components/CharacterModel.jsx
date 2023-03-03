@@ -1,49 +1,33 @@
 import React from "react";
-import { View, Image} from "react-native";
+import { View, Image, TouchableNativeFeedback, Alert} from "react-native";
 import {styles} from '../styles/stylesMain';
 import StyledText from "./StyledText";
+import CharactersDetails from "./CharacterDetails";
 
-const CharactersDetails = character =>{
-    return(
-        <View style={{
-            flexDirection:'row',
-            justifyContent:'space-around'
-        }}>
-            <View style={{
-                alignItems:'center'
-            }}>
-                <StyledText fontWeight="bold" >ID</StyledText>
-                <StyledText>{character.id}</StyledText>
-            </View>
-            <View style={{
-                alignItems:'center'
-            }}>
-                <StyledText  fontWeight="bold" >Gender</StyledText>
-                <StyledText>{character.gender}</StyledText>
-            </View>
-            <View style={{
-                alignItems:'center'
-            }}>
-                <StyledText fontWeight="bold" >Status</StyledText>
-                <StyledText>{character.status}</StyledText>
-            </View>
+const HeaderCharacter = ({character}) =>(
+    <View style={styles.headerStyle}>
+        <Image
+                style={styles.tinyLogo}
+                source={{
+                uri: character.image,
+                }}
+            />
+        <View style={styles.headerNameStyle} >
+            <StyledText  fontWeight="bold" fontSize="subheading" >{character.name}</StyledText>
+            <StyledText style={styles.create}>{character.created}</StyledText>
         </View>
-    )
-}
+    </View>
+)
+
 
 const CharacterToShow = ({character}) => (
     <View 
         key={character.id}
         style={styles.characterList}
     >
-        <Image
-        style={styles.tinyLogo}
-        source={{
-          uri: character.image,
-        }}
-        />
-        <StyledText  fontWeight="bold" fontSize="subheading" >{character.name}</StyledText>
+        <HeaderCharacter character={character}/>
         <CharactersDetails {...character} />
+        
     </View>
 )
 
