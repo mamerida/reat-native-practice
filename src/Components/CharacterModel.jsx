@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Image} from "react-native";
 import {styles} from '../styles/stylesMain';
+import StyledText from "./StyledText";
 
 const CharacterToShow = ({character}) => (
     <View 
@@ -13,10 +14,10 @@ const CharacterToShow = ({character}) => (
           uri: character.image,
         }}
         />
-        <Text style={styles.characterName} >{character.name}</Text>
-        <Text>{character.gender}</Text>
-        <Text>{character.status}</Text>
-        <Text>{character.id}</Text>
+        <StyledText bold >{character.name}</StyledText>
+        <StyledText blue>{character.gender}</StyledText>
+        <StyledText small>{character.status}</StyledText>
+        <StyledText big>{character.id}</StyledText>
     </View>
 )
 
