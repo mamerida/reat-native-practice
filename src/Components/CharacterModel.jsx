@@ -3,6 +3,34 @@ import { View, Image} from "react-native";
 import {styles} from '../styles/stylesMain';
 import StyledText from "./StyledText";
 
+const CharactersDetails = character =>{
+    return(
+        <View style={{
+            flexDirection:'row',
+            justifyContent:'space-around'
+        }}>
+            <View style={{
+                alignItems:'center'
+            }}>
+                <StyledText fontWeight="bold" >ID</StyledText>
+                <StyledText>{character.id}</StyledText>
+            </View>
+            <View style={{
+                alignItems:'center'
+            }}>
+                <StyledText  fontWeight="bold" >Gender</StyledText>
+                <StyledText>{character.gender}</StyledText>
+            </View>
+            <View style={{
+                alignItems:'center'
+            }}>
+                <StyledText fontWeight="bold" >Status</StyledText>
+                <StyledText>{character.status}</StyledText>
+            </View>
+        </View>
+    )
+}
+
 const CharacterToShow = ({character}) => (
     <View 
         key={character.id}
@@ -15,9 +43,7 @@ const CharacterToShow = ({character}) => (
         }}
         />
         <StyledText  fontWeight="bold" fontSize="subheading" >{character.name}</StyledText>
-        <StyledText>{character.gender}</StyledText>
-        <StyledText >{character.status}</StyledText>
-        <StyledText fontWeight="bold" >{character.id}</StyledText>
+        <CharactersDetails {...character} />
     </View>
 )
 
