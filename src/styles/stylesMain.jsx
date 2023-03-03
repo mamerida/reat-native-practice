@@ -5,5 +5,14 @@ export const styles = StyleSheet.create({
     container : {
         marginTop: Constants.statusBarHeight,
         flexGrow: 1
+    },
+    characterList : {
+        padding: 20,
+        paddingBottom:5,
+        paddingTop:5
+    },
+    characterName :{
+        fontWeight: "bold",
+        marginBottom:1
     }
 })
