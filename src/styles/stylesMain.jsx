@@ -8,11 +8,15 @@ export const styles = StyleSheet.create({
     },
     characterList : {
         padding: 20,
-        paddingBottom:5,
-        paddingTop:5
+        paddingBottom: 5,
+        paddingTop: 5
     },
     characterName :{
         fontWeight: "bold",
-        marginBottom:1
-    }
+        marginBottom: 5
+    },
+    tinyLogo: {
+        width: 80,
+        height: 80,
+    },
 })
