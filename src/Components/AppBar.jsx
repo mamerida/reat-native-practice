@@ -1,42 +1,58 @@
 import React from "react";
-import {TouchableWithoutFeedback, View, StyleSheet} from "react-native"
+import {TouchableWithoutFeedback, View, StyleSheet, ScrollView} from "react-native"
 import StyledText from "./StyledText";
 import theme from "../theme";
 import Constants from 'expo-constants'
-import { Link } from "react-router-native";
+import { Link, useLocation } from "react-router-native";
 
 
 const styles = StyleSheet.create({
     container:{
         backgroundColor: theme.appBar.primary,
         paddingTop:Constants.statusBarHeight + 10,
-        paddingBottom:10,
         paddingLeft:10,
         flexDirection:'row'
 
     },
     text: {
-        color: theme.appBar.primaryText,
+        color: theme.appBar.textSecondary,
         paddingHorizontal: 10
+    },
+    scroll:{
+        paddingBottom: 15,
+
+    },
+    active:{
+        color: theme.appBar.primaryText,
     }
 })
 
-const AppBarTab = ({active,children, to})=>{
+const AppBarTab = ({children, to})=>{
+
+    const {pathname} = useLocation()
+    
+    const textStyles = [
+        styles.text,
+        pathname == to  &&  styles.active
+    ]
 
     return(
         <Link to={to} component={TouchableWithoutFeedback}>
-            <StyledText fontWeight='bold' style={styles.text}>
+            <StyledText fontWeight='bold' style={textStyles}>
                 {children}
             </StyledText>
         </Link>
     )
 
 }
+
 const AppBar = () =>{
     return(
         <View style={styles.container}>
-            <AppBarTab active to="/"> Character List</AppBarTab>
-            <AppBarTab active to="/singin"> Sing In</AppBarTab>
+            <ScrollView horizontal style={styles.scroll}>
+                <AppBarTab  to="/"> Character List</AppBarTab>
+                <AppBarTab  to="/singin"> Sing In</AppBarTab>
+            </ScrollView>
         </View>
     )
 }
