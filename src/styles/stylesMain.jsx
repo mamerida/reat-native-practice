@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native"
 import theme from "../theme"
+import { Platform } from "react-native"
 
 export const styles = StyleSheet.create({
     container : {
@@ -21,7 +22,13 @@ export const styles = StyleSheet.create({
     create:{
         padding:4,
         color:theme.colors.white,
-        backgroundColor:theme.colors.primary,
+       // backgroundColor: Platform.OS === 'ios' ? 'red' : theme.colors.primary, forma 1 incomoda
+        backgroundColor: Platform.select({
+            android: theme.colors.primary,
+            ios:'orange',
+            default:'purple'
+
+        }), 
         marginBottom:5,
         marginTop:5,
         alignSelf:'flex-start',
